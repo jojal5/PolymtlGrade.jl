@@ -1,6 +1,8 @@
 using PolymtlGrade
 using Test
+using DataFrames, Missings
 
 @testset "PolymtlGrade.jl" begin
-    # Write your tests here.
+    include("notationstructure_test.jl")
+    include("utils_test.jl")
 end

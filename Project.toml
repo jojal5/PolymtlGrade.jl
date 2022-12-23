@@ -3,6 +3,10 @@ uuid = "8bb440b6-3eff-4af9-9820-e74e2d37e058"
 authors = ["Jonathan Jalbert <jonathan.jalbert@polymtl.ca> and contributors"]
 version = "0.1.0"
 
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Missings = "e1d29d7a-bbdc-5cf2-9ac0-f12de2c33e28"
+
 [compat]
 julia = "1"
 

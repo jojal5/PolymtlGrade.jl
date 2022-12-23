@@ -13,3 +13,7 @@ function grade2num(g::AbstractString)
     return num[ind]
     
 end
+
+function grade2num(::Missing)
+    return missing
+end

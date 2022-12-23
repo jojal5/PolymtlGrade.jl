@@ -10,5 +10,7 @@
     end
     
     @test_throws AssertionError grade2num("A+")
+
+    @test ismissing(grade2num(missing))
     
 end

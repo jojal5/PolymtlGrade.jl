@@ -1,0 +1,13 @@
+name = "PolymtlGrade"
+uuid = "8bb440b6-3eff-4af9-9820-e74e2d37e058"
+authors = ["Jonathan Jalbert <jonathan.jalbert@polymtl.ca> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

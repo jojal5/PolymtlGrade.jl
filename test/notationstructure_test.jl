@@ -2,7 +2,6 @@
 
 @testset "NotationStructure constructor" begin
     @testset "Threshold entry" begin
-#     @test_throws AssertionError
     
         threshold = [55, 60, 65, 70, 75, 80, 85, 95]
         grade = ["D","D+","C","C+","B","B+","A","A*"]
@@ -22,6 +21,33 @@
         
     end
 
+    @testset "Dictionary entry" begin
+       
+        threshold = [55, 60, 65, 70, 75, 80, 85, 95]
+        grade = ["D","D+","C","C+","B","B+","A","A*"]
+
+        r = NotationStructure(threshold)
+        
+        NS = NotationStructure(r.GradeThreshold)
+        
+        @test r.GradeThreshold == NS.GradeThreshold
+        
+    end
+
+    @testset "Broadcast" begin
+
+        threshold = [55, 60, 65, 70, 75, 80, 85, 95]
+
+        r = NotationStructure.([threshold, threshold])
+
+        NS = NotationStructure(threshold)
+
+        @test r[1].GradeThreshold == NS.GradeThreshold
+        @test r[2].GradeThreshold == NS.GradeThreshold
+
+    end
+end
+
     @testset "attribute_grade" begin
    
         threshold = [55, 60, 65, 70, 75, 80, 85, 95]
@@ -37,18 +63,17 @@
         @test ismissing(attribute_grade(NS, missing))
     end
     
-    @testset "Dictionary entry" begin
-       
-        threshold = [55, 60, 65, 70, 75, 80, 85, 95]
-        grade = ["D","D+","C","C+","B","B+","A","A*"]
+@testset "convert" begin
+    
+    grade = ["D","D+","C","C+","B","B+","A","A*"]
+    threshold = [55, 60, 65, 70, 75, 80, 85, 95]
+        
+    NS = NotationStructure(threshold)
 
-        r = NotationStructure(threshold)
-        
-        NS = NotationStructure(r.GradeThreshold)
-        
-        @test r.GradeThreshold == NS.GradeThreshold
-        
-    end
+    df = DataFrame(Grade = grade, Threshold=threshold)
+
+    @test isequal(convert(DataFrame, NS), df)
+
 end
 
 @testset "getvalues" begin

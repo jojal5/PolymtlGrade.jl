@@ -20,9 +20,6 @@ function NotationStructure(threshold::AbstractVector{<:Real})
     return NotationStructure(d)
 end
 
-Base.Broadcast.broadcastable(obj::NotationStructure) = Ref(obj)
-
-
 
 
 # Methods for NotationStructure

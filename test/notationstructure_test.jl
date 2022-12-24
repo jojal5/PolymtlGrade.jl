@@ -34,18 +34,6 @@
         
     end
 
-    @testset "Broadcast" begin
-
-        threshold = [55, 60, 65, 70, 75, 80, 85, 95]
-
-        r = NotationStructure.([threshold, threshold])
-
-        NS = NotationStructure(threshold)
-
-        @test r[1].GradeThreshold == NS.GradeThreshold
-        @test r[2].GradeThreshold == NS.GradeThreshold
-
-    end
 end
 
     @testset "attribute_grade" begin
